@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./Classes/Card_class";
+import Card_class from "./Classes/Card_class";
+import User from "./Classes/User_class";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const myCard: Card = new Card(45, 500);
+  const myOtherCard: Card = new Card(200, 6000);
+  myOtherCard.color = "red";
+
+  myCard.spend(230);
+
+  const user1: User = new User(41, "Fabian Garcia");
+  user1.cards.push(myCard, myOtherCard);
+  user1.age = 25;
+
+  console.log(myCard.balance);
+
+  console.log(user1);
+
+  return <div>{user1.name}</div>;
 }
 
 export default App;
